@@ -1,0 +1,32 @@
+<div class="header-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= link_to root_path, class: "home-link" do %>
+          <h2 class="logo-design">S.Online</h2>
+        <% end %>
+      </div>
+      <div class="col-md-4 ">
+        <%= form_for "",url:root_path, role:"search", method: :get do %>
+          <div class="input-group mb-3 rounded-pill search-bar-border">
+            <%= text_field_tag :search, @search_term, placeholder: "Search Products Here...", class: "form-control search-focus  rounded-pill border-0 py-2 shadow-none" %>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-custom search-bar-btn rounded-pill border-0">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </div>
+          </div>
+        <%end%>
+      </div>
+      <div class="col-md-4 text-md-end header-cred-design">
+        <i class="fa fa-shopping-cart cart-design" ></i>
+        <% if user_signed_in? %>
+          <%= link_to "Logout" , destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"home-login-link"%>
+        <% else %>
+          <%= link_to "Login" , new_user_session_path , class:"home-login-link me-3"%>
+          <%= link_to "Register" , new_user_registration_path , class:"home-login-link"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<h2 class="text-center">Products</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |f| %>
+      <tr>
+        <td><%=  f.id %></td>
+        <td><%= f.title %></td>
+        <td><%= f.price %></td>
+        <td><%= f.description %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+<%= link_to "New  Product", new_product_path %>

@@ -3,9 +3,8 @@ Rails.application.routes.draw do
         sessions: 'users/sessions',
         registrations: 'users/registrations'
       }
-  get '/', to: 'home#index'
+  get '/categories', to: 'categories#index'
+  get '/admin', to: 'admins#index'
+  resources :products
+  root 'home#index'
 end
-
-
-
-

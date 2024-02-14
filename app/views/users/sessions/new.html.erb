@@ -3,12 +3,13 @@
   background-color: #f5f5f5;
   }
 </style>
+<%= render "partials/header" %>
 <div class="container">
   <div class="row">
     <div class="col-md-3">
     </div>
-    <div class="col-md-6">
-      <h2 class="text-center ">Login</h2>
+    <div class="col-md-6 set-cred-page ">
+      <h2 class="text-center">Login</h2>
       <div class="horizontal-rule"></div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group ">
@@ -26,7 +27,7 @@
           </div>
         <% end %>
         <div class="actions">
-          <%= f.submit "Login", class:"btn btn-success form-control mb-2 mt-3" %>
+          <%= f.submit "Login", class:"btn-submit form-control mb-2 mt-3" %>
         </div>
       <% end %>
       <p class="login-cred">
@@ -36,3 +37,4 @@
     </div>
   </div>
 </div>
+<%= render "partials/footer" %>

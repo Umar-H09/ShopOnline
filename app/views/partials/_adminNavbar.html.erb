@@ -1,0 +1,21 @@
+<div class="header-bg">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <%= link_to root_path, class: "home-link" do %>
+          <h2 class="logo-design px-3">S.Online</h2>
+        <% end %>
+      </div>
+      <div class="col-md-6 ">
+      </div>
+      <div class="col-md-4 text-md-end header-cred-design">
+        <% if user_signed_in? %>
+          <%= link_to "Logout" , destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"home-login-link"%>
+        <% else %>
+          <%= link_to "Login" , new_user_session_path , class:"home-login-link me-3"%>
+          <%= link_to "Register" , new_user_registration_path , class:"home-login-link"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
