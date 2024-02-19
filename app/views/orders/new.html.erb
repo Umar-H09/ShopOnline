@@ -1,0 +1,21 @@
+<%= render "partials/header" %>
+<%= render 'partials/cart' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <%= form_with model: @order do |f| %>
+        <div class="form-group">
+          <%= f.label :adress %>
+          <%= f.text_field :adress, class: "form-control", placeholder:"Delivery address ..." %>
+        </div>
+        <div class="form-group">
+          <%= f.label :phone_number %>
+          <%= f.text_field :phone_number, class: "form-control",placeholder:"Contact number ..." %>
+        </div>
+        <%= f.submit 'Place Order', class:'btn btn-danger d-block mx-auto'%>
+      <%end%>
+    </div>
+  </div>
+</div>

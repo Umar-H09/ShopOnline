@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" class="text-center">User Id</th>
+      <th scope="col" class="text-center">Address</th>
+      <th scope="col" class="text-center">Contact Number</th>
+      <th scope="col" class="text-center">Status</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |f| %>
+      <tr>
+        <td class="text-center"><%= f.user_id %></td>
+        <td class="text-center"><%= f.adress %></td>
+        <td class="text-center"><%= f.phone_number %></td>
+        <td class="text-center"><%= f.status %></td>
+      
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
