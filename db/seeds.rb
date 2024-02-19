@@ -7,12 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-ActiveRecord::Base.transaction do
-    10.times do |i| 
-        user = User.create(
-            email: Faker::Internet.email,
-            password: 'password',
+# ActiveRecord::Base.transaction do
+#     10.times do |i| 
+#         user = User.create(
+#             email: Faker::Internet.email,
+#             password: 'password',
             
-        )
-    end
+#         )
+#     end
+# end
+
+%w[Admin Vendor User].each do |role|
+    role = Role.where(name: role).first_or_initialize
+    role.save
 end
+user = User.where(email: "umar@gmail.com").first_or_initialize
+user.username = "Umar"
+user.password = 'Qwerty1!'
+user.add_role(:Admin)
+user.save
