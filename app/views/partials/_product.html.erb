@@ -1,22 +1,29 @@
-<h2 class="text-center">Products</h2>
+ <%= link_to "New Product", new_product_path, class: "nav-link text-end fw-bold" %>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Detail</th>
+      <th scope="col" class="text-center">Name</th>
+      <th scope="col" class="text-center">Price</th>
+      <th scope="col" class="text-center">Quantity</th>
+      <th scope="col" class="text-center">Image</th>
+      <th scope="col" class="text-center">Detail</th>
+      <th scope="col" class="text-center">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @products.each do |f| %>
       <tr>
-        <td><%=  f.id %></td>
-        <td><%= f.title %></td>
-        <td><%= f.price %></td>
-        <td><%= f.description %></td>
-      </tr>
-    <%end%>
-  </tbody>
-</table>
-<%= link_to "New  Product", new_product_path %>
+        <td class="text-center"><%= f.title %></td>
+        <td class="text-center"><%= f.price %></td>
+        <td class="text-center"><%= f.quantity %></td>
+        <td class="text-center"><%= image_tag f.avatar ,width:"70px"%></td>
+        <td class="text-center"><%= f.description %></td>
+        <td class="text-center"><%= link_to "Edit" ,edit_product_path(f) ,class:"text-decoration-none" %>
+          /<%= link_to "Delete" ,product_path(f),class:"text-decoration-none", data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>

@@ -5,3 +5,10 @@ class Order < ApplicationRecord
 
     enum :status, [ :added, :published, :archived, :trashed ]
 end
+
+
+
+
+
+
+  

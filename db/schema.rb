@@ -43,10 +43,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_082437) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.bigint "orders_id"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["orders_id"], name: "index_carts_on_orders_id"
+    t.index ["order_id"], name: "index_carts_on_order_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -68,8 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_082437) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "adress"
-    t.integer "phone_number"
-    t.integer "status"
+    t.text "phone_number"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -81,9 +81,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_082437) do
     t.text "description"
     t.integer "quantity"
     t.bigint "categories_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["categories_id"], name: "index_products_on_categories_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -119,8 +121,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_082437) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "carts", "orders", column: "orders_id"
+  add_foreign_key "carts", "orders"
   add_foreign_key "orderables", "carts"
   add_foreign_key "orderables", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "users"
 end

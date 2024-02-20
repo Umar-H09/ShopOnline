@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   def index
-   @orders = Order.all
+    @orders = if current_user.has_role? :User
+                current_user.orders
+              else
+                Order.joins(orderables: :product).where(products: { id: current_user.product_ids })
+              end
   end
 
   def show
@@ -15,14 +19,13 @@ class OrdersController < ApplicationController
       @cart.order = @order
       session[:cart_id] = nil if @cart.save
       redirect_to root_path(@order)
-      flash[:success] = "Your order has been placed!"
     else
     render 'new'
   end
-end
+ end
 
   def add
-    if user_signed_in?
+    
       @product = Product.find_by(id: params[:id])
       quantity = params[:quantity].to_i
       current_orderable = @cart.orderables.find_by(product_id: @product.id)
@@ -42,10 +45,6 @@ end
                               ]
       end
     end
-  
-  else
-    redirect_to new_user_session_path
- end
 end
 
 def remove

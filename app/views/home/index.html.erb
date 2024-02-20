@@ -1,2 +1,24 @@
-<%= render "partials/header" %>
+
+<div>
+  <div class="container">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-md-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <td class="text-center"><%= image_tag product.avatar ,width:"70px"%></td>
+              <h4 class="card-title"><%= product.title %></h4>
+              <h5 >Rs <%=product.price%></h5>
+            </div>
+            <%=form_with(url: add_orderables_path) do |p| %>
+              <%= p.hidden_field :id, value: product.id %>
+              <%= p.hidden_field  :quantity, value:1, min: 1%>
+              <%= p.submit "Add to cart"%>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 <%= render "partials/footer" %>

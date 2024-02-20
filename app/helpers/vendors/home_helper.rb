@@ -1,0 +1,2 @@
+module Vendors::HomeHelper
+end

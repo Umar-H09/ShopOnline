@@ -19,9 +19,20 @@
         <%end%>
       </div>
       <div class="col-md-4 text-md-end header-cred-design">
-        <i class="fa fa-shopping-cart cart-design" ></i>
+        <%= link_to new_order_path, class:"cart-design home-login-link" do %>
+          <i class="fa fa-shopping-cart " ></i>
+        <% end %>
         <% if user_signed_in? %>
-          <%= link_to "Logout" , destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"home-login-link"%>
+          <%= link_to "Logout" , destroy_user_session_path, data: {turbo_method: :delete} , class:"home-login-link admin-header-link"%>
+          <% if current_user.has_role?(:Admin) %>
+            <%= link_to "Admin", admin_path, class:"home-login-link "%>
+          <%end%>
+          <% if current_user.has_role?(:Vendor) %>
+          <%= link_to "Vendor", vendors_home_index_path, class:"home-login-link "%>
+          <%end%>
+          <% if current_user.has_role?(:User) %>
+          <%= link_to "User", root_path, class:"home-login-link "%>
+          <%end%>
         <% else %>
           <%= link_to "Login" , new_user_session_path , class:"home-login-link me-3"%>
           <%= link_to "Register" , new_user_registration_path , class:"home-login-link"%>
