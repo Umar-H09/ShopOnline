@@ -13,16 +13,26 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
   end
+
   def create
-    @order = current_user.orders.new(order_params)
+    if current_user
+      @user = current_user
+    else
+      @user = User.new(user_params)
+      if user_params[:password].blank?
+        @user.skip_password_validation = true
+      end
+      @user.save
+    end
+    @order = @user.orders.new(order_params)
     if @order.save
       @cart.order = @order
       session[:cart_id] = nil if @cart.save
       redirect_to root_path(@order)
     else
-    render 'new'
+      render 'new'
+    end
   end
- end
 
   def add
     
@@ -62,6 +72,10 @@ end
 
 private
 def order_params
-  params.require(:order).permit(:adress, :phone_number, :status)
+  params.require(:order).permit(:adress, :phone_number, :status, :country, :state, :city, :area, :zip_code)
+end
+
+def user_params
+  params.require(:order).permit(:username, :email, :password, :password_confirmation)
 end
 end

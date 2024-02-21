@@ -1,7 +1,6 @@
 class VendorsController < ApplicationController
   def index
    @user = User.with_role :Vendor
-
   end
 
   def show

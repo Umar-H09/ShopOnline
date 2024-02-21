@@ -1,24 +1,76 @@
-
-<div>
+<div class="whole-slider-design" id="slider-design">
   <div class="container">
     <div class="row">
-      <% @products.each do |product| %>
-        <div class="col-md-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <td class="text-center"><%= image_tag product.avatar ,width:"70px"%></td>
-              <h4 class="card-title"><%= product.title %></h4>
-              <h5 >Rs <%=product.price%></h5>
-            </div>
-            <%=form_with(url: add_orderables_path) do |p| %>
-              <%= p.hidden_field :id, value: product.id %>
-              <%= p.hidden_field  :quantity, value:1, min: 1%>
-              <%= p.submit "Add to cart"%>
-            <% end %>
-          </div>
+      <div class="col-lg-3">
+      </div>
+      <div class="col-lg-9">
+        <div class=" slider">
+          <%= image_tag 'caro-1.jpeg', id: "first-slide" %>
+          <%= image_tag('caro-2.jpeg' )   %>
+          <%= image_tag('caro-10.jpeg' )  %>
+          <%= image_tag('caro-11.jpeg' )  %>
+          <%= image_tag('caro-12.jpeg' )  %>
+          <%= image_tag('caro-13.jpeg' )  %>
+          <%= image_tag('caro-14.jpeg' )  %>
+          <%= image_tag('caro-15.jpeg' )  %>
+          <%= image_tag('caro-16.jpeg' )  %>
+          <%= image_tag('caro-17.jpeg' )  %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-md-3 pt-4">
+        <div class="card card-set-home" style="width: 17rem;">
+          <%= image_tag product.avatar %>
+          <div class="card-body home-card">
+            <div class="row">
+              <div class="col-8">
+                <p class="product-title-home"><%= product.title %></p>
+              </div>
+              <div class="col-4">
+                <p class="text-end price-home">$<%=product.price%></p>
+              </div>
+            </div>
+            <div class="col-12">
+              <p class="home-product-description"><%=product.description[0,44]%></p>
+            </div>
+          </div>
+          <%=form_with(url: add_orderables_path) do |p| %>
+            <%= p.hidden_field :id, value: product.id %>
+            <%= p.hidden_field  :quantity, value:1, min: 1%>
+            <%= p.submit "Add to cart" , class:"form-control bg-add-home"%>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 <%= render "partials/footer" %>
+<script>
+  var images = [];
+      document.querySelectorAll(".slider img").forEach(function(img) {
+        var image = new Image();
+        image.src = img.src;
+        images.push(image);
+      });
+      document.querySelector("#first-slide").classList.add("active");
+      var index = 0;
+      setInterval(function() {
+        var current = document.querySelector(".slider img.active");
+        current.classList.remove("active");
+        index = (index + 1) % images.length;
+        var next = document.querySelectorAll(".slider img")[index];
+        next.classList.add("active");
+      }, 3000);
+     var colors = ['#c9c0ae', '#ffdddb','#359683','#359683','#f85707','#9c9ba0','#359683','#1e9541','#f8c3cd','#c8f9f5']
+      var slider = document.getElementById('slider-design');
+      var index = 0;
+      setInterval(function() {
+        slider.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length;
+      }, 3000);
+</script>
