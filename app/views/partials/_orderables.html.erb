@@ -1,21 +1,30 @@
 <% @cart.orderables.each do |orderable|%>
   <% product = orderable.product%>
   <div id="<%= "cart-#{product.id}" %>">
-    <strong>Name:</strong>
-    <%= product.title %>
-    <strong>Description:</strong>
-    <%= product.description %>
-    <strong>Price:</strong>
-    <%= product.price %>
-    <%= form_with(url: add_orderables_path) do |p| %>
-      <%= p.hidden_field :id, value: product.id %>
-      <%= p.number_field  :quantity, value: orderable.quantity, min: 0%>
-      <%= p.submit "Add to cart" %>
-    <% end %>
-    <%= form_with(url: remove_orderables_path) do |p| %>
-      <%= p.hidden_field :id, value: orderable.id %>
-      <%= p.submit "X" %>
-    <% end %>
+    <hr>
+    <div class="row pb-2">
+      <div class="col-2">
+        <%= image_tag product.avatar ,width:"70px"%>
+      </div>
+      <div class="col-3 pt-2">
+        <%= product.title%>
+      </div>
+      <div class="col-2 pt-2">
+        $<%= product.price %>
+      </div>
+      <div class="col-3 text-center pt-2">
+        <%= form_with(url: add_orderables_path) do |p| %>
+          <%= p.hidden_field :id, value: product.id %>
+          <%= p.number_field  :quantity, value: orderable.quantity, min: 0, class: "small-number-field text-center"%>
+          <%= image_submit_tag "trolley.png", class: "remove-cart",width:"20px" %>
+        <% end %>
+      </div>
+      <div class="col-2 pt-2">
+        <%= form_with(url: remove_orderables_path) do |p| %>
+          <%= p.hidden_field :id, value: orderable.id %>
+          <%= p.submit "X" ,class:"remove-cart"%>
+        <% end %>
+      </div>
+    </div>
   </div>
 <%end%>
- 

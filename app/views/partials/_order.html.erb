@@ -1,7 +1,7 @@
-<table class="table table-striped">
+<table class="table table-striped border ">
   <thead>
-    <tr>
-      <th scope="col" class="text-center">Name</th>
+    <tr class="tbl-bg">
+      <th scope="col" class="text-center ">Name</th>
       <th scope="col" class="text-center">Email</th>
       <th scope="col" class="text-center">Contact#</th>
       <th scope="col" class="text-center">Country</th>
@@ -16,16 +16,16 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td class="text-center"><%= order.user.username %></td>
-        <td class="text-center"><%= order.user.email %></td>
-        <td class="text-center"><%= order.phone_number %></td>
-        <td class="text-center"><%= order.country %></td>
-        <td class="text-center"><%= order.state %></td>
-        <td class="text-center"><%= order.city %></td>
-        <td class="text-center"><%= order.area %></td>
-        <td class="text-center"><%= order.zip_code %></td>
-        <td class="text-center"><%= order.adress %></td>
-        <td class="text-center"><%= order.status %></td>
+        <td class="text-center font-set"><%= order.user.username %></td>
+        <td class="text-center font-set"><%= order.user.email %></td>
+        <td class="text-center font-set"><%= order.phone_number %></td>
+        <td class="text-center font-set"><%= order.country %></td>
+        <td class="text-center font-set"><%= order.state %></td>
+        <td class="text-center font-set"><%= order.city %></td>
+        <td class="text-center font-set"><%= order.area %></td>
+        <td class="text-center font-set"><%= order.zip_code %></td>
+        <td class="text-center font-set"><%= order.adress %></td>
+        <td class="text-center font-set"><%= order.status %></td>
       </tr>
     <%end%>
   </tbody>

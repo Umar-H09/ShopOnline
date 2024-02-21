@@ -4,11 +4,19 @@
       <div class="col-md-2">
         <%= render 'partials/sidebar' %>
       </div>
-      <div class="col-md-4">
-        <%= @products.count%>
-        <%= @orders.count %>
-        <%= @user.count %>
+      <div class="col-md-2">
       </div>
+      <div class="col-md-2 ">
+        <p class="text-center bg-dashboard-count">Products: <%= @products.count%></p>
+      </div>
+      <div class="col-md-2">
+        <p class="text-center bg-dashboard-count">Orders: <%= @orders.count %></p>
+      </div>
+      <%if current_user.has_role?("Admin")%>
+        <div class="col-md-2">
+          <p class="text-center bg-dashboard-count">Vendors: <%= @user.count %></p>
+        </div>
+      <%end%>
     </div>
   </div>
 </div>

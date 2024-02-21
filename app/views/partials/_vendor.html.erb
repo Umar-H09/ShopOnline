@@ -1,20 +1,19 @@
- <%= link_to "New Vendor", new_vendor_path, class: "nav-link text-end fw-bold" %>
-<table class="table table-striped">
+ <%= link_to "New Vendor", new_vendor_path, class: "nav-link new-product-link text-end fw-bold" %>
+<table class="table table-striped border">
   <thead>
-    <tr>
+    <tr class="tbl-bg">
       <th scope="col" class="text-center">Name</th>
       <th scope="col" class="text-center">Email</th>
       <th scope="col" class="text-center">Actions</th>
     </tr>
   </thead>
   <tbody>
-
     <% @user.each do |f| %>
       <tr>
         <td class="text-center"><%= f.username %></td>
         <td class="text-center"><%= f.email %></td>
-        <td class="text-center"><%= link_to "Edit" ,edit_vendor_path(f) ,class:"text-decoration-none" %>
-          /<%= link_to "Delete" ,vendor_path(f),class:"text-decoration-none", data: {
+        <td class="text-center"><%= link_to "Edit" ,edit_vendor_path(f) ,class:"text-decoration-none  edit-clr" %>
+          /<%= link_to "Delete" ,vendor_path(f),class:"text-decoration-none  edit-clr", data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %>

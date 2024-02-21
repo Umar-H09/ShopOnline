@@ -2,13 +2,13 @@
   <% if current_user.has_role?("Admin") ||  current_user.has_role?("Vendor") %>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <%= link_to "Dashboard", admin_path, class: "nav-link #{'active bg-danger' if current_page?(admin_path)}" %>
+        <%= link_to "Dashboard", admin_path, class: "sidebar-nav-link nav-link #{'active bg-danger' if current_page?(admin_path)}" %>
       </li>
       <li>
-        <%= link_to "Products", products_path, class: "nav-link #{'active bg-danger' if current_page?(products_path)}" %>
+        <%= link_to "Products", products_path, class:" sidebar-nav-link nav-link #{'active bg-danger' if current_page?(products_path)}" %>
       </li>
       <li>
-        <%= link_to "Orders", orders_path, class: "nav-link #{'active bg-danger' if current_page?(orders_path)}" %>
+        <%= link_to "Orders", orders_path, class: "sidebar-nav-link nav-link #{'active bg-danger' if current_page?(orders_path)}" %>
       </li>
     </ul>
   <% end %>
@@ -16,7 +16,7 @@
   <% if current_user.has_role?("Admin") %>
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
-        <%= link_to "Vendors", vendors_path, class: "nav-link #{'active bg-danger' if current_page?(vendors_path)}" %>
+        <%= link_to "Vendors", vendors_path, class: "sidebar-nav-link nav-link #{'active bg-danger' if current_page?(vendors_path)}" %>
       </li>
     </ul>
   <% end %>

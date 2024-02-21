@@ -1,7 +1,7 @@
- <%= link_to "New Product", new_product_path, class: "nav-link text-end fw-bold" %>
-<table class="table table-striped">
+<%= link_to "New Product", new_product_path, class: "nav-link new-product-link  fw-bold text-end" %>
+<table class="table table-striped border">
   <thead>
-    <tr>
+    <tr class="tbl-bg">
       <th scope="col" class="text-center">Name</th>
       <th scope="col" class="text-center">Price</th>
       <th scope="col" class="text-center">Quantity</th>
@@ -18,8 +18,8 @@
         <td class="text-center"><%= f.quantity %></td>
         <td class="text-center"><%= image_tag f.avatar ,width:"70px"%></td>
         <td class="text-center"><%= f.description %></td>
-        <td class="text-center"><%= link_to "Edit" ,edit_product_path(f) ,class:"text-decoration-none" %>
-          /<%= link_to "Delete" ,product_path(f),class:"text-decoration-none", data: {
+        <td class="text-center "><%= link_to "Edit" ,edit_product_path(f) ,class:"text-decoration-none  edit-clr" %>
+          /<%= link_to "Delete" ,product_path(f),class:"text-decoration-none edit-clr", data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %>

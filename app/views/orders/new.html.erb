@@ -1,19 +1,25 @@
+<style>
+  body{
+  background-color: #f5f5f5;
+  }
+</style>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-6">
       <%= render 'partials/cart' %>
     </div>
-    <div class="col-md-6">
+    <div class="col-6 pt-4">
       <%= form_with model: @order do |f| %>
         <%if !current_user %>
-          <h3>Contact Information</h3>
+          <h4>Contact Information</h4>
+          <hr>
           <div class="form-group">
-            <%= f.label :email %>
+            <%= f.label :email, class:"label-set" %>
             <%= f.text_field :email, class: "form-control", placeholder:"Email ..." %>
           </div>
           <div class="form-group">
-            <%= f.label :username %>
-            <%= f.text_field :username, class: "form-control", placeholder:"Name ..." %>
+            <%= f.label :username, class:"label-set" %>
+            <%= f.text_field :username, class: "mb-2 form-control", placeholder:"Name ..." %>
           </div>
           <div class="form-check">
             <input type="checkbox" id="toggle">
@@ -22,13 +28,13 @@
               <div class="row">
                 <div class="col-6">
                   <div class="form-group">
-                    <%= f.label :password %>
+                    <%= f.label :password, class:"label-set" %>
                     <%= f.text_field :password,type:"password", class: "form-control", placeholder:"Password ..." %>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
-                    <%= f.label :password_confirmation %>
+                    <%= f.label :password_confirmation, class:"label-set" %>
                     <%= f.text_field :password_confirmation,type:"password", class: "form-control",placeholder:"Password Confirmation ..." %>
                   </div>
                 </div>
@@ -36,34 +42,35 @@
             </div>
           </div>
         <%end%>
-        <h3>Shipping Address</h3>
+        <h4>Shipping Address</h4>
+        <hr>
         <div class="form-group">
-          <%= f.label :adress %>
+          <%= f.label :address, class:"label-set" %>
           <%= f.text_field :adress, class: "form-control", placeholder:"Delivery address ..." %>
         </div>
         <div class="form-group">
-          <%= f.label :country %>
+          <%= f.label :country , class:"label-set"%>
           <%= f.text_field :country, class: "form-control", placeholder:"Country..." %>
         </div>
         <div class="form-group">
-          <%= f.label :state %>
+          <%= f.label :state , class:"label-set"%>
           <%= f.text_field :state, class: "form-control", placeholder:"State..." %>
         </div>
         <div class="form-group">
-          <%= f.label :city %>
+          <%= f.label :city , class:"label-set"%>
           <%= f.text_field :city, class: "form-control", placeholder:"City..." %>
         </div>
         <div class="form-group">
-          <%= f.label :area %>
+          <%= f.label :area, class:"label-set" %>
           <%= f.text_field :area, class: "form-control", placeholder:"Area..." %>
         </div>
         <div class="form-group">
-          <%= f.label :zip_code %>
+          <%= f.label :zip_code, class:"label-set" %>
           <%= f.text_field :zip_code, class: "form-control", placeholder:"Zip-Code..." %>
         </div>
         <div class="form-group">
-          <%= f.label :phone_number %>
-          <%= f.text_field :phone_number, class: "form-control",placeholder:"Contact number ..." %>
+          <%= f.label :phone_number, class:"label-set" %>
+          <%= f.text_field :phone_number, class: "mb-3 form-control",placeholder:"Contact number ..." %>
         </div>
         <%= f.submit 'Place Order', class:'btn btn-danger d-block mx-auto'%>
       <%end%>
