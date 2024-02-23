@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find_by(id: params[:id]) 
     if @order.update(order_params)
-      redirect_to orders_path(@order)
+      redirect_to orders_path
     else
       render :edit , status: :unprocessable_entity
     end 

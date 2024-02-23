@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.products.new(product_params)
     if @product.save
-      redirect_to products_path(@product)
+      redirect_to products_path
     else
       render 'new'
     end 
@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find_by(id: params[:id])
     if @product.update(product_params)
-      redirect_to products_path(@product)
+      redirect_to products_path
     else
       render :edit , status: :unprocessable_entity
     end

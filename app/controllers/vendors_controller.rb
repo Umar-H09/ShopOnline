@@ -17,7 +17,7 @@ class VendorsController < ApplicationController
     @user = User.new(vendor_params)
     @user.add_role :Vendor
     if @user.save
-      redirect_to vendors_path(@user)
+      redirect_to vendors_path
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class VendorsController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     if @user.update(vendor_params)
-      redirect_to vendors_path(@user)
+      redirect_to vendors_path
     else
       render :edit , status: :unprocessable_entity
     end
