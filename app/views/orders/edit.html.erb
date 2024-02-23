@@ -1,0 +1,22 @@
+<style>
+  body{
+  background-color: #f5f5f5;
+  }
+</style>
+<div>
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <%= form_for @order do |f| %>
+          <div class="field">
+            <%= f.label :status%>
+            <%= f.select :status, options_for_select([['Pending', 'Pending'], ['Delivered', 'Delivered']], @order.status), {}, { class: 'form-control mb-3' } %>
+          </div>
+          <%= f.submit class:'btn btn-danger d-block mx-auto'%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

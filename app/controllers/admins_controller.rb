@@ -8,4 +8,5 @@ class AdminsController < ApplicationController
     end
     @user = User.with_role :Vendor
   end
+
 end

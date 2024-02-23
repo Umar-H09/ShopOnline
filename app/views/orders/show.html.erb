@@ -1,0 +1,29 @@
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="text-center">Ordered Products</h4>
+        <table class="table table-striped border">
+          <thead>
+            <tr class="tbl-bg">
+              <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">T.Price</th>
+              <th scope="col" class="text-center">Quantity</th>
+              <th scope="col" class="text-center">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orderables.each do |orderable| %>
+              <tr>
+                <td class="text-center"><%= orderable.product.title %></td>
+                <td class="text-center"><%= orderable.total %></td>
+                <td class="text-center"><%= orderable.quantity %></td>
+                <td class="text-center"><%= orderable.product.description %></td>
+              </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

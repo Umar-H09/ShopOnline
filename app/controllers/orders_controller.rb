@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find_by(id: params[:id])
+    @orderables = @order.orderables
   end
 
   def new
@@ -25,13 +27,26 @@ class OrdersController < ApplicationController
       @user.save
     end
     @order = @user.orders.new(order_params)
-    if @order.save
+    if @order.save  
       @cart.order = @order
       session[:cart_id] = nil if @cart.save
-      redirect_to root_path(@order)
+      redirect_to root_path
     else
       render 'new'
     end
+  end
+
+  def edit
+    @order = Order.find_by(id: params[:id])
+  end
+
+  def update
+    @order = Order.find_by(id: params[:id]) 
+    if @order.update(order_params)
+      redirect_to orders_path(@order)
+    else
+      render :edit , status: :unprocessable_entity
+    end 
   end
 
   def add

@@ -3,7 +3,7 @@ class Order < ApplicationRecord
     has_one :cart
     has_many :orderables, through: :cart
 
-    enum :status, [ :added, :published, :archived, :trashed ]
+    enum :status, [ :Pending, :Delivered ]
 end
 
 

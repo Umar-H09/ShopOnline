@@ -1,2 +1,18 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <h5>Image</h5>
+      <%= image_tag @product.avatar,width:"70px" ,class:"pb-3"%>
+      <h5 class="show-bottom">Name:</h5>
+      <p ><%= @product.title%></p>
+      <h5 class="show-bottom">Price:</h5>
+      <p ><%= @product.price %></p>
+      <h5 class="show-bottom">Quantity:</h5>
+      <p ><%= @product.quantity %></p>
+      <h5 class="show-bottom">Detail:</h5>
+      <p ><%= @product.description %></p>
+    </div>
+  </div>
+</div>

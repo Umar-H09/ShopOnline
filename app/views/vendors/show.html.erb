@@ -1,3 +1,4 @@
+<h4 class="text-center pt-5">Ordered List</h4>
 <table class="table table-striped border ">
   <thead>
     <tr class="tbl-bg">
@@ -15,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @orders.each do |order| %>
+    <% @order.each do |order| %>
       <tr>
         <td class="text-center font-set"><%= order.user.username %></td>
         <td class="text-center font-set"><%= order.user.email %></td>
@@ -27,7 +28,7 @@
         <td class="text-center font-set"><%= order.zip_code %></td>
         <td class="text-center font-set"><%= order.adress %></td>
         <td class="text-center font-set"><%= order.status %></td>
-        <td class="text-center "><%= link_to "View" ,order_path(order) ,class:"text-decoration-none  edit-clr" %>/<%= link_to "Edit" ,edit_order_path(order) ,class:"text-decoration-none  edit-clr" %>
+        <td class="text-center "><%= link_to "View" ,order_path(order) ,class:"text-decoration-none  edit-clr" %>
         </td>
       </tr>
     <%end%>
