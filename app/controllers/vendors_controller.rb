@@ -8,6 +8,11 @@ class VendorsController < ApplicationController
     @order = Order.joins(orderables: :product).where(products: { id: @user.product_ids })
   end
   
+  def showproduct
+    @user = User.find_by(id: params[:id])
+    @product = @user.products
+  end
+
   def new
     @user = User.new
   end
@@ -18,7 +23,7 @@ class VendorsController < ApplicationController
     if @user.save
       redirect_to vendors_path
     else
-      render 'new'
+      render 'new' , status: :unprocessable_entity
     end
   end
   def edit

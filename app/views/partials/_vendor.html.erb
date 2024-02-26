@@ -12,11 +12,11 @@
       <tr>
         <td class="text-center"><%= f.username %></td>
         <td class="text-center"><%= f.email %></td>
-        <td class="text-center"><%= link_to "View" ,vendor_path(f) ,class:"text-decoration-none  edit-clr" %>/<%= link_to "Edit" ,edit_vendor_path(f) ,class:"text-decoration-none  edit-clr" %>
+        <td class="text-center"><%= link_to "View Order" ,vendor_path(f) ,class:"text-decoration-none  edit-clr" %>/<%= link_to "Edit" ,edit_vendor_path(f) ,class:"text-decoration-none  edit-clr" %>
           /<%= link_to "Delete" ,vendor_path(f),class:"text-decoration-none  edit-clr", data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %>
+                  } %>/<%= link_to "View Product" ,vendorproduct_path(f) ,class:"text-decoration-none  edit-clr" %>
         </tr>
       <%end%>
     </tbody>

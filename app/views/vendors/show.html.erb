@@ -1,36 +1,45 @@
-<h4 class="text-center pt-5">Ordered List</h4>
-<table class="table table-striped border ">
-  <thead>
-    <tr class="tbl-bg">
-      <th scope="col" class="text-center ">Name</th>
-      <th scope="col" class="text-center">Email</th>
-      <th scope="col" class="text-center">Contact#</th>
-      <th scope="col" class="text-center">Country</th>
-      <th scope="col" class="text-center">State</th>
-      <th scope="col" class="text-center">City</th>
-      <th scope="col" class="text-center">Area</th>
-      <th scope="col" class="text-center">Zip#</th>
-      <th scope="col" class="text-center">Address</th>
-      <th scope="col" class="text-center">Status</th>
-      <th scope="col" class="text-center">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @order.each do |order| %>
-      <tr>
-        <td class="text-center font-set"><%= order.user.username %></td>
-        <td class="text-center font-set"><%= order.user.email %></td>
-        <td class="text-center font-set"><%= order.phone_number %></td>
-        <td class="text-center font-set"><%= order.country %></td>
-        <td class="text-center font-set"><%= order.state %></td>
-        <td class="text-center font-set"><%= order.city %></td>
-        <td class="text-center font-set"><%= order.area %></td>
-        <td class="text-center font-set"><%= order.zip_code %></td>
-        <td class="text-center font-set"><%= order.adress %></td>
-        <td class="text-center font-set"><%= order.status %></td>
-        <td class="text-center "><%= link_to "View" ,order_path(order) ,class:"text-decoration-none  edit-clr" %>
-        </td>
-      </tr>
-    <%end%>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <%= render "partials/sidebar" %>
+    </div>
+    <div class="col-md-10">
+      <h4 class="text-center ">Ordered List</h4>
+      <table class="table table-striped border ">
+        <thead>
+          <tr class="tbl-bg">
+            <th scope="col" class="text-center ">Name</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Contact#</th>
+            <th scope="col" class="text-center">Country</th>
+            <th scope="col" class="text-center">State</th>
+            <th scope="col" class="text-center">City</th>
+            <th scope="col" class="text-center">Area</th>
+            <th scope="col" class="text-center">Zip#</th>
+            <th scope="col" class="text-center">Address</th>
+            <th scope="col" class="text-center">Status</th>
+            <th scope="col" class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.each do |order| %>
+            <tr>
+              <td class="text-center font-set"><%= order.user.username %></td>
+              <td class="text-center font-set"><%= order.user.email %></td>
+              <td class="text-center font-set"><%= order.phone_number %></td>
+              <td class="text-center font-set"><%= order.country %></td>
+              <td class="text-center font-set"><%= order.state %></td>
+              <td class="text-center font-set"><%= order.city %></td>
+              <td class="text-center font-set"><%= order.area %></td>
+              <td class="text-center font-set"><%= order.zip_code %></td>
+              <td class="text-center font-set"><%= order.adress %></td>
+              <td class="text-center font-set"><%= order.status %></td>
+              <td class="text-center "><%= link_to "View" ,order_path(order) ,class:"text-decoration-none  edit-clr" %>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

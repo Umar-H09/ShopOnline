@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   resources :orders
   post "/add_orderables", to: 'orders#add'
   post "/remove_orderables", to: 'orders#remove'
-
+  get '/vendorproduct/:id', to: 'vendors#showproduct', as: 'vendorproduct'
 end

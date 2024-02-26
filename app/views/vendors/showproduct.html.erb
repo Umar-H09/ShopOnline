@@ -5,23 +5,25 @@
         <%= render 'partials/sidebar' %>
       </div>
       <div class="col-md-10">
-        <h4 class="text-center">Ordered Products</h4>
+        <h4 class="text-center">Vendor Products</h4>
         <table class="table table-striped border">
           <thead>
             <tr class="tbl-bg">
               <th scope="col" class="text-center">Name</th>
-              <th scope="col" class="text-center">T.Price</th>
+              <th scope="col" class="text-center">Price</th>
               <th scope="col" class="text-center">Quantity</th>
+              <th scope="col" class="text-center">Image</th>
               <th scope="col" class="text-center">Detail</th>
             </tr>
           </thead>
           <tbody>
-            <% @orderables.each do |orderable| %>
+            <% @product.each do |f| %>
               <tr>
-                <td class="text-center"><%= orderable.product.title %></td>
-                <td class="text-center"><%= orderable.total %></td>
-                <td class="text-center"><%= orderable.quantity %></td>
-                <td class="text-center"><%= orderable.product.description %></td>
+                <td class="text-center"><%= f.title %></td>
+                <td class="text-center"><%= f.price %></td>
+                <td class="text-center"><%= f.quantity %></td>
+                <td class="text-center"><%= image_tag f.avatar ,width:"70px"%></td>
+                <td class="text-center"><%= f.description %></td>
               </tr>
             <%end%>
           </tbody>

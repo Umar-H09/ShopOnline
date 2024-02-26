@@ -7,22 +7,38 @@
   <div class="container pt-5">
     <div class="row">
       <div class="col-md-4">
+        <%= render "partials/sidebar"%>
       </div>
       <div class="col-md-4">
         <%= form_with model: @user, url: vendors_path do |f| %>
           <div class="form-group">
             <%= f.label :username, class:"label-set" %>
-            <%= f.text_field :username, class: "mb-3 input-lg custom-height form-control", placeholder:"Enter name ..." %>
+            <%= f.text_field :username, class: "input-lg custom-height form-control", placeholder:"Enter name ..." %>
+            <% if @user.errors[:username].any? %>
+              <div class="text-danger">
+                <%= @user.errors[:username].first %>
+              </div>
+            <% end %>
           </div>
           <div class="form-group">
             <%= f.label :email, class:"label-set" %>
-            <%= f.text_field :email, class: "mb-3 input-lg custom-height form-control",placeholder:"Enter email ..." %>
+            <%= f.text_field :email, class: "input-lg custom-height form-control",placeholder:"Enter email ..." %>
+            <% if @user.errors[:email].any? %>
+              <div class="text-danger">
+                <%= @user.errors[:email].first %>
+              </div>
+            <% end %>
           </div>
           <div class="form-group">
             <%= f.label :password, class:"label-set" %>
-            <%= f.text_field :password,type:'password', class: "mb-3 input-lg custom-height form-control",placeholder:"Enter Password..." %>
+            <%= f.text_field :password,type:'password', class: "input-lg custom-height form-control",placeholder:"Enter Password..." %>
+            <% if @user.errors[:password].any? %>
+              <div class="text-danger">
+                <%= @user.errors[:password].first %>
+              </div>
+            <% end %>
           </div>
-          <%= f.submit class:'btn btn-danger d-block mx-auto'%>
+          <%= f.submit class:'mt-2 btn btn-danger d-block mx-auto'%>
         <%end%>
       </div>
     </div>
