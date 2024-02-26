@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 	def set_render_cart
 		@render_cart = true
 	end
-
 	def initialize_cart
 		@cart ||= Cart.find_by(id: session[:cart_id])
 

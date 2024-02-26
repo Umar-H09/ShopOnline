@@ -3,7 +3,6 @@ class VendorsController < ApplicationController
    @user = User.with_role :Vendor
   end
 
-
   def show
     @user = User.find_by(id: params[:id])
     @order = Order.joins(orderables: :product).where(products: { id: @user.product_ids })
