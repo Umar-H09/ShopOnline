@@ -1,9 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
-      <%= render "partials/sidebar" %>
-    </div>
-    <div class="col-md-10">
+    <div class="col-md-12">
       <h4 class="text-center ">Ordered List</h4>
       <table class="table table-striped border ">
         <thead>
@@ -24,17 +21,17 @@
         <tbody>
           <% @order.each do |order| %>
             <tr>
-              <td class="text-center font-set"><%= order.user.username %></td>
-              <td class="text-center font-set"><%= order.user.email %></td>
-              <td class="text-center font-set"><%= order.phone_number %></td>
-              <td class="text-center font-set"><%= order.country %></td>
-              <td class="text-center font-set"><%= order.state %></td>
-              <td class="text-center font-set"><%= order.city %></td>
-              <td class="text-center font-set"><%= order.area %></td>
-              <td class="text-center font-set"><%= order.zip_code %></td>
-              <td class="text-center font-set"><%= order.adress %></td>
-              <td class="text-center font-set"><%= order.status %></td>
-              <td class="text-center "><%= link_to "View" ,order_path(order) ,class:"text-decoration-none  edit-clr" %>
+              <td class="text-center font-set align-middle"><%= order.user.username %></td>
+              <td class="text-center font-set align-middle"><%= order.user.email %></td>
+              <td class="text-center font-set align-middle"><%= order.phone_number %></td>
+              <td class="text-center font-set align-middle"><%= order.country %></td>
+              <td class="text-center font-set align-middle"><%= order.state %></td>
+              <td class="text-center font-set align-middle"><%= order.city %></td>
+              <td class="text-center font-set align-middle"><%= order.area %></td>
+              <td class="text-center font-set align-middle"><%= order.zip_code %></td>
+              <td class="text-center font-set align-middle"><%= order.adress %></td>
+              <td class="text-center font-set align-middle"><%= order.status %></td>
+              <td class="text-center  align-middle"><%= link_to "View" ,order_path(order) ,class:"text-decoration-none  edit-clr" %>
               </td>
             </tr>
           <%end%>

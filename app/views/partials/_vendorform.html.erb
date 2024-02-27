@@ -6,10 +6,9 @@
 <div>
   <div class="container pt-5">
     <div class="row">
-      <div class="col-md-4">
-        <%= render "partials/sidebar"%>
+      <div class="col-md-2">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <%= form_with model: @user, url: vendors_path do |f| %>
           <div class="form-group">
             <%= f.label :username, class:"label-set" %>

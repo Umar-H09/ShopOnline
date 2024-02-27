@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  layout 'admin'
   def index
     @products = current_user.products
     @orders = if current_user.has_role? :User

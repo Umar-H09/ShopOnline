@@ -1,0 +1,31 @@
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="text-center">Vendor Products</h4>
+        <table class="table table-striped border">
+          <thead>
+            <tr class="tbl-bg">
+              <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">Price</th>
+              <th scope="col" class="text-center">Quantity</th>
+              <th scope="col" class="text-center">Image</th>
+              <th scope="col" class="text-center">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @product.each do |f| %>
+              <tr>
+                <td class="text-center align-middle"><%= f.title %></td>
+                <td class="text-center align-middle"><%= f.price %></td>
+                <td class="text-center align-middle"><%= f.quantity %></td>
+                <td class="text-center align-middle"><%= image_tag f.avatar ,width:"70px"%></td>
+                <td class="text-center align-middle"><%= f.description %></td>
+              </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

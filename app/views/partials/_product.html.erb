@@ -13,13 +13,13 @@
   <tbody>
     <% @products.each do |f| %>
       <tr>
-        <td class="text-center"><%= f.title %></td>
-        <td class="text-center"><%= f.price %></td>
-        <td class="text-center"><%= f.quantity %></td>
-        <td class="text-center"><%= image_tag f.avatar ,width:"70px"%></td>
-        <td class="text-center"><%= f.description %></td>
-        <td class="text-center "><%= link_to "View" ,product_path(f) ,class:"text-decoration-none  edit-clr" %>/<%= link_to "Edit" ,edit_product_path(f) ,class:"text-decoration-none  edit-clr" %>
-          /<%= link_to "Delete" ,product_path(f),class:"text-decoration-none edit-clr", data: {
+        <td class="text-center align-middle"><%= f.title %></td>
+        <td class="text-center align-middle"><%= f.price %></td>
+        <td class="text-center align-middle"><%= f.quantity %></td>
+        <td class="text-center align-middle"><%= image_tag f.avatar ,width:"70px"%></td>
+        <td class="text-center align-middle"><%= f.description %></td>
+        <td class="text-center align-middle"><%= link_to "View" ,product_path(f) ,class:"text-decoration-none px-2 edit-clr" %> <%= link_to "Edit" ,edit_product_path(f) ,class:"text-decoration-none px-2 edit-clr" %>
+          <%= link_to "Delete" ,product_path(f),class:"text-decoration-none edit-clr", data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %>

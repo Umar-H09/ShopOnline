@@ -1,19 +1,16 @@
 <div>
   <div class="container">
     <div class="row">
-      <div class="col-md-2">
-        <%= render 'partials/sidebar' %>
+      <div class="col-2">
       </div>
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-2 ">
+      <div class="col-2 ">
         <p class="text-center bg-dashboard-count">Products: <%= @products.count%></p>
       </div>
-      <div class="col-md-2">
+      <div class="col-2">
         <p class="text-center bg-dashboard-count">Orders: <%= @orders.count %></p>
       </div>
       <%if current_user.has_role?("Admin")%>
-        <div class="col-md-2">
+        <div class="col-2">
           <p class="text-center bg-dashboard-count">Vendors: <%= @user.count %></p>
         </div>
       <%end%>

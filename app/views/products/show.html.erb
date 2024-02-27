@@ -1,19 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <%= render "partials/sidebar" %>
-    </div>
-    <div class="col-md-4">
-      <h5>Image</h5>
-      <%= image_tag @product.avatar,width:"70px" ,class:"pb-3"%>
-      <h5 class="show-bottom">Name:</h5>
-      <p ><%= @product.title%></p>
-      <h5 class="show-bottom">Price:</h5>
-      <p ><%= @product.price %></p>
-      <h5 class="show-bottom">Quantity:</h5>
-      <p ><%= @product.quantity %></p>
-      <h5 class="show-bottom">Detail:</h5>
-      <p ><%= @product.description %></p>
-    </div>
-  </div>
-</div>
+<table class="table table-striped border mt-3">
+  <thead>
+    <tr class="tbl-bg">
+      <th scope="col" class="text-center">Image</th>
+      <th scope="col" class="text-center">Name</th>
+      <th scope="col" class="text-center">Price</th>
+      <th scope="col" class="text-center">Quantity</th>
+      <th scope="col" class="text-center">Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center"><%= image_tag @product.avatar,width:"70px" %></td>
+      <td class="text-center"><%= @product.title %></td>
+      <td class="text-center"><%= @product.price %></td>
+      <td class="text-center"><%= @product.quantity%></td>
+      <td class="text-center"><%= @product.description %></td>
+    </td>
+  </tr>
+</tbody>
+</table>

@@ -1,4 +1,5 @@
 class VendorsController < ApplicationController
+  layout 'admin'
   def index
    @user = User.with_role :Vendor
   end
@@ -8,7 +9,7 @@ class VendorsController < ApplicationController
     @order = Order.joins(orderables: :product).where(products: { id: @user.product_ids })
   end
   
-  def showproduct
+  def show_product
     @user = User.find_by(id: params[:id])
     @product = @user.products
   end

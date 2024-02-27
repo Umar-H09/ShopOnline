@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  layout 'admin'
   def index
     @products = current_user.products
   end

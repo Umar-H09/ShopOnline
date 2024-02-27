@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  layout "admin", except: [:new]
   def index
     @orders = if current_user.has_role? :User
                 current_user.orders
