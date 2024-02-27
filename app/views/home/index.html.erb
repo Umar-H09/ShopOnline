@@ -39,10 +39,14 @@
               <p class="home-product-description"><%=product.description[0,44]%></p>
             </div>
           </div>
-          <%=form_with(url: add_orderables_path) do |p| %>
-            <%= p.hidden_field :id, value: product.id %>
-            <%= p.hidden_field  :quantity, value:1, min: 1%>
-            <%= p.submit "Add to cart" , class:"form-control bg-add-home"%>
+          <% if product.quantity <= 0 %>
+            <%= button_tag "Out of Stock" , class:"form-control bg-add-home disabled out-of-stock"%>
+          <% else %>
+            <%=form_with(url: add_orderables_path) do |p| %>
+              <%= p.hidden_field :id, value: product.id %>
+              <%= p.hidden_field  :quantity, value:1, min: 1%>
+              <%= p.submit "Add to cart" , class:"form-control bg-add-home"%>
+            <% end %>
           <% end %>
         </div>
       </div>

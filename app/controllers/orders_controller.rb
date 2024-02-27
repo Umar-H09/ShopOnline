@@ -28,7 +28,12 @@ class OrdersController < ApplicationController
       @user.save
     end
     @order = @user.orders.new(order_params)
-    if @order.save  
+    if @order.save
+      @cart.orderables.each do |orderable|
+        product = orderable.product
+        new_quantity = product.quantity - orderable.quantity
+        product.update(quantity: new_quantity)
+      end  
       @cart.order = @order
       session[:cart_id] = nil if @cart.save
       redirect_to root_path
@@ -54,42 +59,46 @@ class OrdersController < ApplicationController
       @product = Product.find_by(id: params[:id])
       quantity = params[:quantity].to_i
       current_orderable = @cart.orderables.find_by(product_id: @product.id)
-      if current_orderable && quantity > 0
-        current_orderable.update(quantity:)
-        elsif quantity <= 0
-          current_orderable.destroy
+      if current_orderable && quantity > 0 
+        if @product.quantity >= quantity
+          current_orderable.update(quantity:)
         else
-          @cart.orderables.create(product: @product, quantity:)
+          flash.now[:alert] = "Oops! We have only #{@product.quantity} pieces left in stock "
         end
-        
-          respond_to do |format|
-            format.turbo_stream do 
-              render turbo_stream: [turbo_stream.replace('cart',
-                                    partial: 'partials/cart',
-                                    locals: { cart: @cart }),
-                                  ]
-          end
+      elsif quantity <= 0
+          current_orderable.destroy
+      else
+            @cart.orderables.create(product: @product, quantity:)
       end
-  end
-
-def remove
-  Orderable.find_by(id: params[:id]).destroy
-  respond_to do |format|
-    format.turbo_stream do 
-      render turbo_stream: [turbo_stream.replace('cart',
-      partial: 'partials/cart',
-      locals: { cart: @cart })
-    ]
+        
+        respond_to do |format|
+          format.turbo_stream do 
+            render turbo_stream: [turbo_stream.replace('cart',
+                                  partial: 'partials/cart',
+                                  locals: { cart: @cart }),
+                                ]
+        end
     end
   end
-end
 
-private
-def order_params
-  params.require(:order).permit(:adress, :phone_number, :status, :country, :state, :city, :area, :zip_code)
-end
+  def remove
+    Orderable.find_by(id: params[:id]).destroy
+    respond_to do |format|
+      format.turbo_stream do 
+        render turbo_stream: [turbo_stream.replace('cart',
+        partial: 'partials/cart',
+        locals: { cart: @cart })
+      ]
+      end
+    end
+  end
 
-def user_params
-  params.require(:order).permit(:username, :email, :password, :password_confirmation)
-end
+  private
+  def order_params
+    params.require(:order).permit(:adress, :phone_number, :status, :country, :state, :city, :area, :zip_code)
+  end
+
+  def user_params
+    params.require(:order).permit(:username, :email, :password, :password_confirmation)
+  end
 end
