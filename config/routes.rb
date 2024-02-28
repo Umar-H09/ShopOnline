@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+          sessions: 'users/sessions',
+          registrations: 'users/registrations'
+        }
   namespace :vendors do
     get 'home/index'
   end
-  devise_for :users, controllers: {
-        sessions: 'users/sessions',
-        registrations: 'users/registrations'
-      }
-  get '/categorys', to: 'categorys#index'
   get '/admin', to: 'admins#index'
   resources :products
   resources :vendors

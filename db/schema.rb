@@ -49,12 +49,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_095614) do
     t.index ["order_id"], name: "index_carts_on_order_id"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "orderables", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "cart_id", null: false
@@ -85,11 +79,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_095614) do
     t.decimal "price", precision: 5, scale: 2
     t.text "description"
     t.integer "quantity"
-    t.bigint "categories_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["categories_id"], name: "index_products_on_categories_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
