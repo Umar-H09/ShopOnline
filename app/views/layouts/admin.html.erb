@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
   <script src="https://kit.fontawesome.com/4177f37136.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 </head>
 <div>
   <%= render "partials/header" %>

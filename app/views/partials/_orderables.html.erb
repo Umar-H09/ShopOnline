@@ -13,10 +13,12 @@
         $<%= product.price %>
       </div>
       <div class="col-3 text-center pt-2">
-        <%= form_with(url: add_orderables_path) do |p| %>
-          <%= p.hidden_field :id, value: product.id %>
-          <%= p.number_field  :quantity, value: orderable.quantity, min: 0, class: "small-number-field text-center"%>
-          <%= image_submit_tag "trolley.png", class: "remove-cart",width:"20px" %>
+        <%= turbo_frame_tag "orderables" do %>
+          <%= form_with(url: add_orderables_path, method: :post, id: "order_form") do |p| %>
+            <%= p.hidden_field :id, value: product.id %>
+            <%= p.number_field  :quantity, value: orderable.quantity, min: 0, class: "small-number-field text-center", onchange: "this.form.submit();" %>
+            <%= p.submit "Submit", style: "display: none;" %>
+          <% end %>
         <% end %>
       </div>
       <div class="col-2 pt-2">

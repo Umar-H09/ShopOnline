@@ -1,0 +1,197 @@
+.whole-slider-design {
+  height: 344px;
+}
+
+.whole-slider-design {
+  background: #c9c0ae;
+}
+
+#slider-design {
+  width: 100%;
+  height: 344px;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 344px;
+  overflow: hidden;
+}
+
+.slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slider img.active {
+  opacity: 1;
+}
+
+.home-link {
+  text-decoration: none;
+}
+
+.logo-design {
+  color: #ae423f;
+}
+
+.search-bar-border {
+  border: 1px solid #343434;
+  background-color: #36454F;
+}
+
+.search-icon-format {
+  color: whitesmoke;
+  border-radius: 50%;
+
+}
+
+.search-focus {
+  padding: 0px 9px !important;
+  font-size: 14px !important;
+}
+
+.home-login-link {
+  color: #d9534f;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.home-login-link:hover {
+  color: #343434;
+}
+
+.cart-design {
+  margin-right: 16px;
+  font-size: 20px;
+}
+
+.header-bg {
+  margin-top: 13px;
+}
+
+.price-home {
+  font-size: 16px;
+}
+
+.home-product-description {
+  font-size: 15px;
+}
+
+.bg-add-home {
+  background-color: #F5F5F5 !important;
+}
+
+.out-of-stock {
+  color: lightslategray !important;
+}
+
+.footer-set {
+  background-color: #ae423f;
+  margin-top: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+}
+
+.footer-rights {
+  background-color: #36454F;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: whitesmoke;
+  font-size: 13px;
+}
+
+.footer-head {
+  color: whitesmoke;
+}
+
+.footer-horizontal-rule {
+  border: 1px solid #eb7b2b;
+  width: 50px;
+}
+
+.footer-body {
+  text-decoration: none;
+  color: #c59f9f;
+}
+
+.footer-body:hover {
+  color: #008080;
+}
+
+.add-design {
+  color: lightcyan;
+}
+
+.horizontal-rule {
+  border: 1px solid #ae423f;
+  width: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.set-cred-page {
+  margin-top: 5rem !important;
+}
+
+.login-link {
+  font-size: 15px;
+  text-decoration: none;
+  color: #008080;
+}
+
+.login-cred {
+  font-size: 14px;
+}
+
+.login-bottom-format {
+  margin-bottom: 5rem;
+}
+
+.sidebar-nav-link {
+  color: #d9534f;
+}
+
+.bg-dashboard-count {
+  background-color: #22bb33;
+  border-radius: 5px;
+  padding: 7px 0px;
+  margin: 15px 0px;
+}
+
+.new-product-link {
+  color: #ae423f;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.edit-clr {
+  color: #d9534f;
+}
+
+.control-me {
+  display: none;
+}
+
+#toggle:checked+.control-me {
+  display: block;
+}
+
+.padding-left-cart-order {
+  padding-left: 0px !important;
+}
+
+.small-number-field {
+  width: 50px;
+  font-size: 0.8em;
+}
+
+.remove-cart {
+  border: none;
+  font-weight: 500;
+}

@@ -3,14 +3,13 @@
   background-color: #f5f5f5;
   }
 </style>
-
 <div class="container">
   <div class="row">
     <div class="col-md-3">
     </div>
     <div class="col-md-6 set-cred-page ">
-      <h2 class="text-center">Login</h2>
-      <div class="horizontal-rule"></div>
+      <h2 class="text-center ">Login</h2>
+      <div class="horizontal-rule mb-4"></div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group ">
           <%= f.label :email %>
@@ -27,10 +26,10 @@
           </div>
         <% end %>
         <div class="actions">
-          <%= f.submit "Login", class:"btn-submit form-control mb-2 mt-3" %>
+          <%= f.submit "Login", class:"btn-submit form-control mb-2 mt-3 bg-light" %>
         </div>
       <% end %>
-      <p class="login-cred">
+      <p class="login-cred login-bottom-format">
         Don't have an account?
         <%= render "users/shared/links"  %>
       </p>
